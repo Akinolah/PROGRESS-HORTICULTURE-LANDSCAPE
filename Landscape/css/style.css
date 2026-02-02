@@ -1,0 +1,308 @@
+/* Custom Styles for GreenScape */
+
+:root {
+    --primary-green: #16a34a;
+    --dark-green: #15803d;
+    --light-green: #dcfce7;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Apply animations to elements */
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-in-out;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-green);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-green);
+    padding: 12px 24px;
+    border: 2px solid var(--primary-green);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+/* Form styles */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+/* Smooth transitions for hover effects */
+a {
+    transition: color 0.3s ease;
+}
+
+/* Nav link text color transition for scroll effect */
+.nav-link-text {
+    transition: color 0.3s ease;
+}
+
+.nav-link-text.scroll-white {
+    color: white;
+}
+
+/* Hero section enhancement */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Card elevation effect */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Service section styling */
+.service-box {
+    border-left: 4px solid var(--primary-green);
+    padding-left: 20px;
+}
+
+/* Footer styling */
+footer a {
+    color: inherit;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Enhanced footer styles and hover animations */
+.footer-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-social:hover,
+.social-link:focus {
+    transform: translateY(-6px) rotate(-6deg) scale(1.06);
+    background: linear-gradient(135deg, rgba(22,163,74,0.95), rgba(21,128,61,0.95));
+    box-shadow: 0 8px 24px rgba(23,163,84,0.18);
+}
+
+.footer-link {
+    color: #cbd5e1;
+    transition: color 0.22s ease, transform 0.18s ease;
+}
+
+.footer-link:hover {
+    color: #fff;
+    transform: translateX(6px);
+}
+
+#footer-newsletter .btn-primary {
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+#footer-newsletter-email {
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+#footer-newsletter-email:focus {
+    box-shadow: 0 6px 18px rgba(16,185,129,0.12);
+}
+
+#back-to-top {
+    cursor: pointer;
+    color: #cbd5e1;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+#back-to-top:hover {
+    transform: translateY(-4px);
+    color: #fff;
+    background: rgba(255,255,255,0.03);
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-green);
+}
+
+/* Print styles */
+@media print {
+    nav,
+    footer {
+        display: none;
+    }
+}
