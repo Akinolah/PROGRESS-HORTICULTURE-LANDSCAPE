@@ -1,6 +1,5 @@
-// GreenScape JavaScript Functionality
 
-// Scroll listener to make nav text white when scrolling
+
 window.addEventListener('scroll', () => {
     const navLinks = document.querySelectorAll('.nav-link-text');
     if (window.scrollY > 50) {
@@ -10,7 +9,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile Menu Toggle
+
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -19,7 +18,7 @@ if (menuBtn && mobileMenu) {
         mobileMenu.classList.toggle('hidden');
     });
 
-    // Close menu when clicking on a link
+    
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -28,7 +27,7 @@ if (menuBtn && mobileMenu) {
     });
 }
 
-// FAQ Accordion
+
 const faqToggles = document.querySelectorAll('.faq-toggle');
 
 faqToggles.forEach(toggle => {
@@ -36,7 +35,7 @@ faqToggles.forEach(toggle => {
         const content = toggle.nextElementSibling;
         const icon = toggle.querySelector('.text-green-600');
 
-        // Close other open items
+        
         faqToggles.forEach(otherToggle => {
             if (otherToggle !== toggle) {
                 otherToggle.nextElementSibling.classList.add('hidden');
@@ -44,13 +43,13 @@ faqToggles.forEach(toggle => {
             }
         });
 
-        // Toggle current item
+        
         content.classList.toggle('hidden');
         icon.textContent = content.classList.contains('hidden') ? '+' : '−';
     });
 });
 
-// Contact Form Handler
+
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
 
@@ -58,29 +57,29 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Get form data
+        
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
 
-        // Validate form
+        
         if (!data.name || !data.email || !data.subject || !data.message) {
             showFormMessage('Please fill in all required fields.', 'error');
             return;
         }
 
-        // Validate email format
+        
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
             showFormMessage('Please enter a valid email address.', 'error');
             return;
         }
 
-        // Here you would normally send the data to a server
-        // For now, we'll just show a success message
+        
+        
         console.log('Form Data:', data);
         showFormMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
 
-        // Reset form
+        
         contactForm.reset();
     });
 }
@@ -99,13 +98,13 @@ function showFormMessage(message, type) {
         formMessage.classList.remove('bg-green-100', 'text-green-800');
     }
 
-    // Auto-hide message after 5 seconds
+    
     setTimeout(() => {
         formMessage.classList.add('hidden');
     }, 5000);
 }
 
-// Portfolio Filter
+
 const filterButtons = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 const portfolioGrid = document.getElementById('portfolio-grid');
@@ -115,7 +114,7 @@ if (filterButtons.length > 0 && portfolioItems.length > 0) {
         button.addEventListener('click', () => {
             const filter = button.getAttribute('data-filter');
 
-            // Update active button
+            
             filterButtons.forEach(btn => {
                 btn.classList.remove('bg-green-600', 'text-white');
                 btn.classList.add('bg-gray-200', 'text-gray-800');
@@ -123,7 +122,7 @@ if (filterButtons.length > 0 && portfolioItems.length > 0) {
             button.classList.remove('bg-gray-200', 'text-gray-800');
             button.classList.add('bg-green-600', 'text-white');
 
-            // Filter items with animation
+            
             portfolioItems.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
 
@@ -138,7 +137,7 @@ if (filterButtons.length > 0 && portfolioItems.length > 0) {
     });
 }
 
-// Smooth Scroll for anchor links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -149,7 +148,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add scroll animation to elements
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -164,19 +163,19 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections for animation
+
 document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Counter Animation for Statistics Section
+
 function animateCounters() {
     const counters = document.querySelectorAll('.counter');
     
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 60fps
+        const duration = 2000; 
+        const increment = target / (duration / 16); 
         let current = 0;
         
         const updateCounter = () => {
@@ -193,7 +192,7 @@ function animateCounters() {
     });
 }
 
-// Observe counter section and trigger animation when visible
+
 const counterSection = document.querySelector('.bg-gradient-to-br');
 if (counterSection) {
     const counterObserver = new IntersectionObserver((entries) => {
@@ -209,15 +208,15 @@ if (counterSection) {
     counterObserver.observe(counterSection);
 }
 
-// Simple error handling for images
+
 document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', () => {
         console.warn('Image failed to load:', img.src);
-        // Image has fallback in HTML using onerror attribute
+        
     });
 });
 
-// Add active state to navigation based on current page
+
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('nav a');
@@ -233,18 +232,18 @@ function setActiveNavLink() {
 
 setActiveNavLink();
 
-// Log page load
+
 console.log('GreenScape website loaded successfully!');
 
-// --- Footer: dynamic year, newsletter and back-to-top ---
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Dynamic year
+    
     const yearEl = document.getElementById('footer-year');
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
     }
 
-    // Newsletter handling (client-only)
+    
     const newsletterForm = document.getElementById('footer-newsletter');
     const emailInput = document.getElementById('footer-newsletter-email');
     const newsletterMsg = document.getElementById('footer-newsletter-msg');
@@ -267,15 +266,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Simulate subscribe action
+            
             console.log('Newsletter subscribe:', email);
             try {
-                // store a simple record locally (optional)
+                
                 const subs = JSON.parse(localStorage.getItem('phl_newsletter') || '[]');
                 subs.push({ email, date: new Date().toISOString() });
                 localStorage.setItem('phl_newsletter', JSON.stringify(subs));
             } catch (err) {
-                // ignore storage errors
+                
             }
 
             emailInput.value = '';
@@ -283,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Back to top
+    
     const backToTop = document.getElementById('back-to-top');
     if (backToTop) {
         backToTop.addEventListener('click', (e) => {
@@ -292,3 +291,117 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('puzzle-grid');
+    if (!grid) return; 
+
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    const solveBtn = document.getElementById('solve-btn');
+    const modal = document.getElementById('puzzle-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.getElementById('modal-close');
+
+    const imgs = Array.from({length:13}, (_,i)=>`../assets/${i+1}.jpg`);
+    const captions = ['Modern Garden Design', 'Commercial Landscaping', 'Tropical Outdoor Living', 'Contemporary Hardscape', 'Residential Makeover', 'Zen Garden Retreat', 'Outdoor Entertainment Space', 'Eco-Friendly Landscape', 'Mediterranean Garden', 'Urban Park Development', 'Water Feature Installation', 'Seasonal Garden Transformation', 'Premium Estate Design'];
+
+    const tiles = [];
+    for(let i=0;i<imgs.length;i++){
+        const el = document.createElement('button');
+        el.type='button';
+        el.className='puzzle-tile relative overflow-hidden w-full h-full puzzle-animate';
+        el.style.backgroundImage = `url("${imgs[i]}")`;
+        el.dataset.src = imgs[i];
+        el.setAttribute('aria-label', captions[i] || 'Project image');
+
+        
+        const cap = document.createElement('span');
+        cap.className = 'puzzle-caption';
+        cap.textContent = captions[i];
+        el.appendChild(cap);
+
+        el.addEventListener('click', ()=>{
+            if(modalImg) modalImg.src = el.dataset.src;
+            if(modal){ modal.classList.remove('hidden'); modal.classList.add('flex'); }
+        });
+        tiles.push(el);
+    }
+
+    function render(ordered){
+        grid.innerHTML='';
+        ordered.forEach((tile, idx)=>{
+            const wrapper = document.createElement('div');
+            const cls = (idx%7===0) ? 'col-span-2 row-span-2' : '';
+            wrapper.className = cls;
+            wrapper.appendChild(tile);
+            grid.appendChild(wrapper);
+        });
+    }
+
+    render(tiles.slice());
+
+    function closeModal(){
+        if(!modal) return;
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        if(modalImg) modalImg.src='';
+    }
+
+    if(modalClose) modalClose.addEventListener('click', closeModal);
+    if(modal) modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+    function shuffleAnimate(){
+        const current = Array.from(tiles);
+        current.forEach((t)=>{
+            const rx = (Math.random()*160)-80;
+            const ry = (Math.random()*120)-60;
+            const rrot = (Math.random()*30)-15;
+            t.style.transition = 'transform 700ms cubic-bezier(.2,.8,.2,1), opacity 700ms';
+            t.style.transform = `translate(${rx}px, ${ry}px) rotate(${rrot}deg) scale(.92)`;
+            t.style.opacity = '0.85';
+        });
+
+        setTimeout(()=>{
+            for(let i=current.length-1;i>0;i--){
+                const j = Math.floor(Math.random()*(i+1));
+                [current[i], current[j]] = [current[j], current[i]];
+            }
+            render(current);
+            requestAnimationFrame(()=>{
+                const newTiles = grid.querySelectorAll('.puzzle-tile');
+                newTiles.forEach((t)=>{
+                    t.style.transition = 'transform 900ms cubic-bezier(.2,.8,.2,1), opacity 900ms';
+                    t.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+                    t.style.opacity = '1';
+                });
+            });
+            while(tiles.length) tiles.pop();
+            current.forEach(t=>tiles.push(t));
+        }, 420);
+    }
+
+    function arrangeAnimate(){
+        const ordered = Array.from(tiles).sort((a,b)=> a.dataset.src.localeCompare(b.dataset.src));
+        render(ordered);
+        const newTiles = grid.querySelectorAll('.puzzle-tile');
+        newTiles.forEach((t,i)=>{
+            t.style.opacity='0';
+            t.style.transform='translateY(24px) scale(.96)';
+            setTimeout(()=>{
+                t.style.transition='transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms';
+                t.style.transform='translateY(0) scale(1)';
+                t.style.opacity='1';
+            }, i*80);
+        });
+        while(tiles.length) tiles.pop();
+        ordered.forEach(t=>tiles.push(t));
+    }
+
+    if(shuffleBtn) shuffleBtn.addEventListener('click', shuffleAnimate);
+    if(solveBtn) solveBtn.addEventListener('click', arrangeAnimate);
+
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && tiles[0]) { if(modalImg) modalImg.src = tiles[0].dataset.src; if(modal){ modal.classList.remove('hidden'); modal.classList.add('flex'); } } });
+});
+
+

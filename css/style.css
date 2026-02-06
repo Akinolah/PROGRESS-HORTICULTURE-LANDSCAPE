@@ -1,4 +1,3 @@
-/* Custom Styles for GreenScape */
 
 :root {
     --primary-green: #16a34a;
@@ -6,12 +5,12 @@
     --light-green: #dcfce7;
 }
 
-/* Smooth scrolling */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -94,7 +93,7 @@ html {
     }
 }
 
-/* Apply animations to elements */
+
 .fade-in {
     animation: fadeIn 0.6s ease-in-out;
 }
@@ -107,7 +106,7 @@ html {
     animation: slideInRight 0.6s ease-in-out;
 }
 
-/* Custom button styles */
+
 .btn-primary {
     background-color: var(--primary-green);
     color: white;
@@ -139,7 +138,7 @@ html {
     color: white;
 }
 
-/* Form styles */
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -148,12 +147,12 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
 }
 
-/* Smooth transitions for hover effects */
+
 a {
     transition: color 0.3s ease;
 }
 
-/* Nav link text color transition for scroll effect */
+
 .nav-link-text {
     transition: color 0.3s ease;
 }
@@ -162,7 +161,7 @@ a {
     color: white;
 }
 
-/* Hero section enhancement */
+
 .hero {
     position: relative;
     overflow: hidden;
@@ -179,7 +178,7 @@ a {
     pointer-events: none;
 }
 
-/* Card elevation effect */
+
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -189,7 +188,7 @@ a {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* Gradient text */
+
 .gradient-text {
     background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
     -webkit-background-clip: text;
@@ -197,13 +196,13 @@ a {
     background-clip: text;
 }
 
-/* Service section styling */
+
 .service-box {
     border-left: 4px solid var(--primary-green);
     padding-left: 20px;
 }
 
-/* Footer styling */
+
 footer a {
     color: inherit;
 }
@@ -212,7 +211,7 @@ footer a:hover {
     color: white;
 }
 
-/* Enhanced footer styles and hover animations */
+
 .footer-social {
     display: inline-flex;
     align-items: center;
@@ -269,7 +268,7 @@ footer a:hover {
     background: rgba(255,255,255,0.03);
 }
 
-/* Mobile responsiveness improvements */
+
 @media (max-width: 768px) {
     .container {
         padding-left: 1rem;
@@ -281,7 +280,7 @@ footer a:hover {
     }
 }
 
-/* Scrollbar styling */
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -299,10 +298,24 @@ footer a:hover {
     background: var(--dark-green);
 }
 
-/* Print styles */
+
 @media print {
     nav,
     footer {
         display: none;
     }
 }
+
+
+.puzzle-tile{background-size:cover;background-position:center;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .3s;position:relative;border:0;padding:0}
+.puzzle-tile:hover{transform:scale(1.05) translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.18)}
+.puzzle-animate{transition:transform 1s ease, opacity .6s ease}
+.puzzle-caption{position:absolute;left:8px;right:8px;bottom:8px;background:rgba(0,0,0,0.48);color:#fff;padding:8px 10px;border-radius:8px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .3s ease, transform .3s ease;font-size:14px}
+.puzzle-tile:hover .puzzle-caption{opacity:1;transform:translateY(0)}
+#puzzle-grid > div.col-span-2{grid-column:span 2/span 2}
+#puzzle-grid > div.row-span-2{grid-row:span 2/span 2}
+
+@media (max-width: 900px){#puzzle-grid{grid-template-columns:repeat(3,1fr)}#puzzle-grid{grid-auto-rows:120px}}
+@media (max-width: 480px){#puzzle-grid{grid-template-columns:repeat(2,1fr)}#puzzle-grid{grid-auto-rows:100px}}
+
+
